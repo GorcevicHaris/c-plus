@@ -159,27 +159,84 @@ using namespace std;
 //     return 0;
 // }
 //====================================================================
-int main()
-{
-    int a, b;
-    cout << "Unesite donju granicu (dvocifren broj): ";
-    cin >> a;
-    cout << "Unesite gornju granicu (dvocifren broj): ";
-    cin >> b;
+// 15 zadatak
+// int main()
+// {
+//     int a, b;
+//     cout << "Unesite donju granicu (dvocifren broj): ";
+//     cin >> a;
+//     cout << "Unesite gornju granicu (dvocifren broj): ";
+//     cin >> b;
 
-    if (a < 10 || a > 99 || b < 10 || b > 99 || a > b)
-    {
-        cout << " unesite ispravne brojeve ";
-        return 1;
-    }
-    cout << " ovo su brojevi deljivi sa 3 " << endl;
+//     if (a < 10 || a > 99 || b < 10 || b > 99 || a > b)
+//     {
+//         cout << " unesite ispravne brojeve ";
+//         return 1;
+//     }
+//     cout << " ovo su brojevi deljivi sa 3 " << endl;
 
-    for (int i = a; i <= b; i++)
-    {
-        if (i % 3 == 0)
-        {
-            cout << i << endl;
-        }
-    }
-    return 0;
-}
+//     for (int i = a; i <= b; i++)
+//     {
+//         if (i % 3 == 0)
+//         {
+//             cout << i << endl;
+//         }
+//     }
+//     return 0;
+// }
+//====================================================================
+// // 16 zadatak
+// int main()
+// {
+//     int a, b;
+//     int suma = 0;
+//     cout << " unesi pocetak i kraj " << endl;
+//     cin >> a >> b;
+
+//     for (int i = a; i < b; i++)
+//     {
+//         if (i % 2 == 0)
+//         {
+//             suma += i;
+//         }
+//     }
+//     cout << " suma je : " << suma << endl;
+// }
+//====================================================================
+// 17 zadatak
+
+// int main()
+// {
+//     int a, b, broj;
+//     cout << " unesi pocetak i kraj " << endl;
+//     cin >> a >> b;
+//     cout << " unesi broj  " << endl;
+//     cin >> broj;
+//     cout << " ovo su brojevi koji su deljivi sa datim brojem " << endl;
+//     for (int i = a; i < b; i++)
+//     {
+//         if (i % broj == 0)
+//         {
+//             cout << i << endl;
+//         }
+//     }
+// }
+//====================================================================
+
+// int faktorijel(int a, int &b)
+// {
+//     for (int i = 1; i <= a; i++)
+//     {
+//         b *= i;
+//     }
+// }
+// int main()
+// {
+//     int a, b = 1;
+//     cout << " unesi broj " << endl;
+//     cin >> a;
+//     faktorijel(a, b);
+//     cout
+//         << " ovo je faktorijel " << b << endl;
+//     return 0;
+// }
