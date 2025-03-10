@@ -240,3 +240,135 @@ using namespace std;
 //         << " ovo je faktorijel " << b << endl;
 //     return 0;
 // }
+//===============================================================
+// int faktorijel(int x)
+// {
+//     int i;
+//     int f = 1;
+//     for (i = x; i > 1; i--)
+//     {
+//         f = f * i;
+//     }
+//     return f;
+// }
+// int main(void)
+// {
+//     int x;
+//     double c;
+//     int izraz;
+//     cout << "Unesite broj: " << endl;
+//     cin >> x;
+//     izraz = faktorijel(x) + faktorijel(x + 2) - faktorijel(2 * x);
+//     printf("Vrednost izraza je %d\n", izraz);
+//     return 0;
+// }
+//===============================================================
+// // 22 zadatak
+// void zamena_mesta(int &a, int &b)
+// {
+//     int temp = a;
+//     a = b;
+//     b = temp;
+// }
+
+// int main()
+// {
+//     int x = 5, y = 10;
+
+//     cout << "Pre zamene: x = " << x << ", y = " << y << endl;
+
+//     zamena_mesta(x, y);
+
+//     cout << "Nakon zamene: x = " << x << ", y = " << y << endl;
+
+//     return 0;
+// }
+//====================================================================
+// void unos_brojeva(int &a, int &n)
+// {
+//     cout << "Unesite broj a: ";
+//     cin >> a;
+//     cout << "Unesite broj n: ";
+//     cin >> n;
+// }
+
+// // Funkcija za računanje stepena
+// int stepen(int a, int n)
+// {
+//     return pow(a, n);
+// }
+
+// int main()
+// {
+//     int a, n;
+
+//     unos_brojeva(a, n);
+
+//     int rezultat1 = stepen(a, n);
+//     int rezultat2 = rezultat1 + stepen(a, n + 1);
+
+//     cout << "Vrednost an: " << rezultat1 << endl;
+//     cout << "Vrednost an + an+1: " << rezultat2 << endl;
+
+//     return 0;
+// }
+//====================================================================
+// bool imaCifruJedinica9(int broj)
+// {
+//     return abs(broj) % 10 == 9;
+// }
+
+// int zbirBrojevaSaCifrom9(int a, int b)
+// {
+//     int zbir = 0;
+//     for (int i = a; i <= b; i++)
+//     {
+//         if (imaCifruJedinica9(i))
+//         {
+//             zbir += i;
+//         }
+//     }
+//     return zbir;
+// }
+
+// int main()
+// {
+//     int a, b;
+//     cout << "Unesite granice intervala [a, b]: ";
+//     cin >> a >> b;
+
+//     int rezultat = zbirBrojevaSaCifrom9(a, b);
+//     cout << "Zbir brojeva u intervalu [" << a << ", " << b << "] sa cifrom jedinice 9 je: " << rezultat << endl;
+
+//     return 0;
+// }
+//====================================================================
+
+int main()
+{
+    int a;
+    cout << "Unesi broj: ";
+    cin >> a;
+
+    int poslednjaCifra = a % 10; // Uzima poslednju cifru broja
+    a = a / 10;
+    cout << "ovo je a : " << a << "ovo je poslednja cifr :" << poslednjaCifra;
+    // Petlja koja proverava cifre broja
+    while (a > 0)
+    {
+        int trenutaCifra = a % 10; // Uzima sledeću cifru
+        if (trenutaCifra > poslednjaCifra)
+        {
+            cout << "Cifre su  u opadajucem redosledu." << endl;
+            return 0; // Ako cifre nisu u neopadajućem redosledu, izlazimo iz funkcije
+        }
+        else
+        {
+            poslednjaCifra = trenutaCifra; // Postavlja trenutnu cifru kao poslednju
+        }
+        a = a / 10; // Uklanja poslednju cifru
+    }
+
+    cout << "Cifre broja su u neopadajucem redosledu." << endl; // Ako su cifre u neopadajućem redosledu
+    return 0;
+}
