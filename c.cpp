@@ -343,32 +343,185 @@ using namespace std;
 //     return 0;
 // }
 //====================================================================
+//
+// int main()
+// {
+//     int a;
+//     cout << "Unesi broj: ";
+//     cin >> a;
 
-int main()
-{
-    int a;
-    cout << "Unesi broj: ";
-    cin >> a;
+//     int poslednjaCifra = a % 10; // Uzima poslednju cifru broja
+//     a = a / 10;
+//     cout << "ovo je a : " << a << "ovo je poslednja cifr :" << poslednjaCifra;
+//     // Petlja koja proverava cifre broja
+//     while (a > 0)
+//     {
+//         int trenutaCifra = a % 10; // Uzima sledeću cifru
+//         if (trenutaCifra > poslednjaCifra)
+//         {
+//             cout << "Cifre su  u opadajucem redosledu." << endl;
+//             return 0; // Ako cifre nisu u neopadajućem redosledu, izlazimo iz funkcije
+//         }
+//         else
+//         {
+//             poslednjaCifra = trenutaCifra; // Postavlja trenutnu cifru kao poslednju
+//         }
+//         a = a / 10; // Uklanja poslednju cifru
+//     }
 
-    int poslednjaCifra = a % 10; // Uzima poslednju cifru broja
-    a = a / 10;
-    cout << "ovo je a : " << a << "ovo je poslednja cifr :" << poslednjaCifra;
-    // Petlja koja proverava cifre broja
-    while (a > 0)
-    {
-        int trenutaCifra = a % 10; // Uzima sledeću cifru
-        if (trenutaCifra > poslednjaCifra)
-        {
-            cout << "Cifre su  u opadajucem redosledu." << endl;
-            return 0; // Ako cifre nisu u neopadajućem redosledu, izlazimo iz funkcije
-        }
-        else
-        {
-            poslednjaCifra = trenutaCifra; // Postavlja trenutnu cifru kao poslednju
-        }
-        a = a / 10; // Uklanja poslednju cifru
-    }
+//     cout << "Cifre broja su u neopadajucem redosledu." << endl; // Ako su cifre u neopadajućem redosledu
+//     return 0;
+// }
+//======================================================================
+// bool jeProst(int n)
+// {
+//     if (n < 2)
+//         return false;
+//     for (int i = 2; i * i <= n; i++)
+//     {
+//         if (n % i == 0)
+//         {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
 
-    cout << "Cifre broja su u neopadajucem redosledu." << endl; // Ako su cifre u neopadajućem redosledu
-    return 0;
-}
+// int main()
+// {
+//     int a, b;
+//     int brojac = 0;
+
+//     cout << "Unesi opseg (dva broja a i b): ";
+//     cin >> a >> b;
+
+//     for (int i = a; i <= b; i++)
+//     {
+//         if (jeProst(i))
+//         {
+//             brojac++;
+//         }
+//     }
+
+//     cout << "Izmedju " << a << " i " << b << " ima " << brojac << " prostih brojeva." << endl;
+
+//     return 0;
+// }
+
+//(n + a -1)
+//(n + a - 1)
+//======================================================================
+// da kupi banane u radnji mora da plati 2k dpolara
+// k je kolko kosta jedna banan
+// k = kolko kosta banana n = koliko ima dolara   v = koliko zeli banana
+// int main()
+// {
+//     int k, n, v;
+//     int suma = 1;
+//     cout << "unesi klk hoces";
+//     cin >> k >> n >> v;
+
+//     for (int i = 1; i < v; i++)
+//     {
+//         suma = (v * (v + 1)) / 2;//klk ga kosta
+//     }
+
+//     cout << suma;
+// }
+//======================================================================
+// // DA li telo miruje ili je u ravnotezi samo da proveris da li su svi jedanki 0 ili ne
+// int main()
+// {
+//     int n;
+//     cout << "unesi broj sila" << endl;
+//     cin >> n;
+
+//     int sum_x = 0, sum_y = 0, sum_z = 0;
+//     cout << "unesite " << n << " sila u formatu x y z\n";
+//     for (int i = 0; i < n; i++)
+//     {
+//         int x, y, z;
+//         cin >> x >> y >> z;
+//         sum_x += x;
+//         sum_y += y;
+//         sum_z += z;
+//     }
+//     if (sum_x == 0 && sum_y == 0 && sum_z == 0)
+//     {
+//         cout << "Telo miruje." << endl;
+//     }
+//     else
+//     {
+//         cout << "Telo se krece u ravnotezi" << endl;
+//     }
+//     return 0;
+// }
+//======================================================================
+
+// int main()
+// {
+//     int n, k;
+
+//     cout << "unesi n " << endl;
+//     cin >> n;
+//     cout << "unesi k " << endl;
+//     cin >> k;
+
+//     for (int i = 0; i < k; i++)
+//     {
+//         if (n % 10 == 0)
+//         {
+//             n /= 10;
+//         }
+//         else
+//         {
+//             n--;
+//         }
+//     }
+//     cout << "ovo je resenje" << n;
+//     return 0;
+// }
+//======================================================================
+// ima n stajalista,
+// prazan je pre nego sto stigne na prvu stanicu, takodje kada stigne na zadnju stanicu svi putnici izlaze
+// znaci na svakoj stanici prvo izlaze pa ulaze
+// ai koji ulaze iz trmvava bi koji izlaze
+// 2 <= n && n >=1000
+// //==============================================================================
+// int main()
+// {
+//     int n, ai, bi, putnici = 0;
+//     int maxputnika = 0;
+//     int min = 0;
+//     cout << "Unesi n stajalista";
+//     cin >> n;
+//     if (n < 2 || n > 1000)
+//     {
+//         cout << "Uneli ste pogresan unos";
+//         return 1;
+//     }
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << "unesi koliko izlazi i ulazi " << endl;
+//         cin >> ai >> bi;
+//         if (putnici <= ai)
+//         {
+//             putnici = 0;
+//         }
+//         else
+//         {
+//             putnici -= ai;
+//             min -= ai;
+//         }
+//         putnici += bi;
+//         min += bi;
+//         if (i == n - 1 == 0)
+//         {
+//             min = 0;
+//             return 1;
+//         }
+//     }
+//     maxputnika = putnici;
+//     cout << "ovo je broj minimalan kapacitet voza" << maxputnika;
+// }
