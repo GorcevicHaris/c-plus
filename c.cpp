@@ -551,3 +551,98 @@ using namespace std;
 //     }
 //     cout << "trenutno je dostupno " << max << " sobe" << endl;
 // }
+//====================================================================================
+// 2 zadatak
+// n brojeva zadataka
+// int main()
+// {
+//     int n, a, b, c;
+//     cout << "unesi broj zadataka " << endl;
+//     cin >> n;
+//     int max = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << "toni unosi da li je siguran " << endl;
+//         cin >> a;
+//         cout << "Imran unosi da li je siguran " << endl;
+//         cin >> b;
+//         cout << "Hamza unosi da li je siguran " << endl;
+//         cin >> c;
+//         if (a + b + c >= 2)
+//         {
+//             max++;
+//         }
+//     }
+//     cout << "sigurni su da ce resiti " << max << "zadataka";
+// }
+//====================================================================================
+// 3 zadatak
+// k kuca prijatelja
+// int main()
+// {
+//     int k;
+//     cout
+//         << "unesi broj kilometara " << endl;
+//     cin >> k;
+//     int max = 0;
+
+//     for (int i = 0; i < k; i += 5)
+//     {
+//         if (k > i)
+//         {
+//             max++;
+//         }
+//     }
+//     cout << max;
+//     return 0;
+// }
+//====================================================================================
+// 4 zadatak vojnik i banane
+// k cena prve banane
+// n pocetni broj dolara
+// v broj banana koje zeli
+
+// int main()
+// {
+//     int k, n, v;
+//     int ukupnaCena = 0;
+//     int itsEnought = 0;
+//     int kolikoMuTreba = 0;
+//     cout << "unesi cenu prve banane " << endl;
+//     cin >> k;
+//     cout << "unesi koliko dolara ima vojnik" << endl;
+//     cin >> n;
+//     cout << "unesi kolicinu banana koju vojnik zeli " << endl;
+//     cin >> v;
+//     // 3 17 4 == 13
+//     ukupnaCena = k * (v * (v + 1)) / 2;
+//     if (ukupnaCena <= n)
+//     {
+//         itsEnought++;
+//     }
+//     kolikoMuTreba = ukupnaCena - n;
+//     itsEnought > 0 ? cout << 0 : cout << "Potrebno mu je jos " << kolikoMuTreba;
+// }
+//====================================================================================
+// // 5 zadatak da li je u ravnotezi
+// int main()
+// {
+//     int n, aSum = 0, bSum = 0, cSum = 0;
+//     cout << "unesi pozitivan ceo broj " << endl;
+//     cin >> n;
+//     int max = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         int a, b, c;
+//         cout << "unesi prvi vektor" << endl;
+//         cin >> a;
+//         cout << "unesi drugi vektor" << endl;
+//         cin >> b;
+//         cout << "unesi treci vektor" << endl;
+//         cin >> c;
+//         aSum += a;
+//         bSum += b;
+//         cSum += c;
+//     }
+//     max == 0 ? cout << "da" : cout << "ne";
+// }
