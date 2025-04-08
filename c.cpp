@@ -525,3 +525,29 @@ using namespace std;
 //     maxputnika = putnici;
 //     cout << "ovo je broj minimalan kapacitet voza" << maxputnika;
 // }
+//===================================================================================
+// // 1 zadatak
+// // spavaonica n soba
+// // u i-toj prostoriji zive pi ljudi i sobbni kapacitet  = ki osobe(pi <= ki)
+// // prebrojati koliko soba ima slobodnog mesta za dzordza i aleksu
+
+// int main()
+// {
+//     int n, pi, ki;
+//     cout << "unesi broj soba" << endl;
+//     int max = 0;
+//     cin >> n;
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << "unesi  broj ljudi koji su u sobi";
+//         cin >> pi;
+//         cout << "unesi broj kapaciteta sobe";
+//         cin >> ki;
+//         if (ki - pi >= 2)
+//         {
+//             max++;
+//         }
+//     }
+//     cout << "trenutno je dostupno " << max << " sobe" << endl;
+// }
