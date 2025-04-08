@@ -646,3 +646,25 @@ using namespace std;
 //     }
 //     max == 0 ? cout << "da" : cout << "ne";
 // }
+//================================================================================
+// int main()
+// {
+//     int k, n, aSum = 0, bSum = 0, cSum = 0;
+//     cout << "broj od kojeg će Ilma oduzeti " << endl;
+//     cin >> n;
+//     cout << "broj oduzimanja shodno tome.​" << endl;
+//     cin >> k;
+//     int max = 0;
+//     for (int i = 0; i < k; i++)
+//     {
+//         if (n % 10 == 0)
+//         {
+//             n /= 10;
+//         }
+//         else
+//         {
+//             n -= 1;
+//         }
+//     }
+//     cout << n;
+// }
