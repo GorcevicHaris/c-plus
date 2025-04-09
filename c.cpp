@@ -668,3 +668,42 @@ using namespace std;
 //     }
 //     cout << n;
 // }
+//=============================================================
+// 7 zadatak
+// ai koji izlaze
+// bi koji ulaze
+// Prvi red sadrži jedan broj n (2 ≤ n ≤ 1000) — broj tramvajskih stanica.​
+int main()
+{
+    int n, ai, bi;
+    cout << "Unesi n stajalista" << endl;
+    cin >> n;
+    int min = 0;
+    int putnici = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "koliko izlaze u " << " " << i + 1 << "" << " stajalistu" << endl;
+        cin >> ai;
+        cout << "koliko ulaze u " << " " << i + 1 << " " << " stajalistu " << endl;
+        cin >>
+            bi;
+        if (ai > min && ai > putnici)
+        {
+            min = 0;
+            putnici = 0;
+        }
+        else
+        {
+            min -= ai;
+            putnici -= ai;
+        }
+        min += bi;
+        putnici += bi;
+        if (i == n - 1)
+        {
+            putnici = 0;
+        }
+    }
+    cout << "ovo su min - " << min << "i voz je na kraju prazan jer su svi otisli" << putnici << endl;
+}
