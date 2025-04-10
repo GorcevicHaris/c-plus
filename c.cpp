@@ -745,3 +745,87 @@ using namespace std;
 //     }
 //     cout << "ovo je sirina " << sirina;
 // }
+//====================================================================================
+// // 9 zadatak
+// // 0 = problem je lak
+// // 1 problem je tezak
+// int main()
+// {
+//     int n, ai;
+//     cout << "Broj ljudi koje pitamo " << endl;
+//     cin >> n;
+//     int suma = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << i + 1 << " misljenje " << endl;
+//         cin >> ai;
+//         if (ai > 1)
+//         {
+//             cout << "nevalidan unos" << endl;
+//             return 1;
+//         }
+//         suma += ai;
+//     }
+//     suma < 1 ? cout << "EASY" : cout << "HARD";
+// }
+//====================================================================================
+// // zadatak 10
+// // pi = koliko vec ima ljudi u sobe
+// // ki = kapacitet sobe
+// int main()
+// {
+//     int n, pi, ki;
+//     cout << "Unesi broj soba" << endl;
+//     cin >> n;
+//     int brojSoba = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << "Unesi koliko u " << i + 1 << " sobi ima ljudi" << endl;
+//         cin >> pi;
+//         cout << "Unesi kapacitet" << i + 1 << " sobe" << endl;
+//         cin >> ki;
+//         if (ki - pi >= 2)
+//         {
+//             brojSoba++;
+//         }
+//         if (ki < pi)
+//         {
+//             cout << "Pogresan unos " << endl;
+//             return 1;
+//         }
+//     }
+//     cout << "broj soba  u koje dzordz i aleks mogu da se usele je " << brojSoba;
+//     return 0;
+// }
+//====================================================================================
+// // zadatak 11
+// // n = broj koliko ce ispisati parnih i neparnih npr 5 =  1,3,5,2,4
+// // k pozicija u niz
+// int main()
+// {
+//     int n, k;
+//     cout << "Unesi n  za neparne i parne brojeve";
+//     cin >> n;
+//     cout << "Unesi poziciju";
+//     cin >> k;
+//     for (int i = 1; i <= n; i += 2)
+//     {
+//         k--;
+//         if (k == 0)
+//         {
+//             cout << i << endl;
+//             return 0;
+//         }
+//     }
+
+//     for (int i = 2; i <= n; i += 2)
+//     {
+//         k--;
+//         if (k == 0)
+//         {
+//             cout << i << endl;
+//             return 0;
+//         }
+//     }
+//     return 0;
+// }
