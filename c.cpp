@@ -669,41 +669,79 @@ using namespace std;
 //     cout << n;
 // }
 //=============================================================
-// 7 zadatak
-// ai koji izlaze
-// bi koji ulaze
-// Prvi red sadrži jedan broj n (2 ≤ n ≤ 1000) — broj tramvajskih stanica.​
-int main()
-{
-    int n, ai, bi;
-    cout << "Unesi n stajalista" << endl;
-    cin >> n;
-    int min = 0;
-    int putnici = 0;
+// // 7 zadatak voz
+// // ai koji izlaze
+// // bi koji ulaze
+// // Prvi red sadrži jedan broj n (2 ≤ n ≤ 1000) — broj tramvajskih stanica.​
+// int main()
+// {
+//     int n, ai, bi;
+//     cout << "Unesi n stajalista" << endl;
+//     cin >> n;
+//     int min = 0;
+//     int putnici = 0;
 
-    for (int i = 0; i < n; i++)
-    {
-        cout << "koliko izlaze u " << " " << i + 1 << "" << " stajalistu" << endl;
-        cin >> ai;
-        cout << "koliko ulaze u " << " " << i + 1 << " " << " stajalistu " << endl;
-        cin >>
-            bi;
-        if (ai > min && ai > putnici)
-        {
-            min = 0;
-            putnici = 0;
-        }
-        else
-        {
-            min -= ai;
-            putnici -= ai;
-        }
-        min += bi;
-        putnici += bi;
-        if (i == n - 1)
-        {
-            putnici = 0;
-        }
-    }
-    cout << "ovo su min - " << min << "i voz je na kraju prazan jer su svi otisli" << putnici << endl;
-}
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << "koliko izlaze u " << " " << i + 1 << "" << " stajalistu" << endl;
+//         cin >> ai;
+//         cout << "koliko ulaze u " << " " << i + 1 << " " << " stajalistu " << endl;
+//         cin >>
+//             bi;
+//         if (ai > min && ai > putnici)
+//         {
+//             min = 0;
+//             putnici = 0;
+//         }
+//         else
+//         {
+//             min -= ai;
+//             putnici -= ai;
+//         }
+//         min += bi;
+//         putnici += bi;
+//         if (i == n - 1)
+//         {
+//             putnici = 0;
+//         }
+//     }
+//     cout << "ovo su min - " << min << "i voz je na kraju prazan jer su svi otisli" << putnici << endl;
+// }
+//======================================================================
+// // 8 zadatak
+// // h visina
+// // ai = visine i-te osobe
+// // znaci samo treba da proveris ako je osoba veca od visine * 2 ili h*2 onda se racuna sirina
+// // kao 2 a ako je manji od visine onda 1
+// int main()
+// {
+//     int n, h, ai;
+//     cout << "unesi broj prijatelja i visinu ograde" << endl;
+//     cin >> n >> h;
+//     int sirina = 0;
+//     int nizAi[n];
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << " unesi visunu " << i + 1 << " prijatelja" << endl;
+//         cin >> nizAi[i];
+//         if (1 <= nizAi[i] && nizAi[i] >= h * 2)
+//         {
+//             cout << " Nevalidan ulaz: visina mora biti između 1 i " << 2 * h << endl;
+//             return 1;
+//         }
+//     }
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (nizAi[i] > h)
+//         {
+//             sirina += 2;
+//         }
+//         else
+//         {
+//             sirina += 1;
+//         }
+//     }
+//     cout << "ovo je sirina " << sirina;
+// }
