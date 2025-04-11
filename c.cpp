@@ -829,3 +829,73 @@ using namespace std;
 //     }
 //     return 0;
 // }
+//==============================================================
+// 1 zadatak za pripremu
+// int main()
+// {
+//     int n, delilac;
+//     cout << "unesi duzinu niza" << endl;
+//     cin >> n;
+//     cout << "unesi delilac" << endl;
+//     cin >> delilac;
+//     int arr[n];
+//     int suma = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << "Unesi" << i + 1 << " element niza" << endl;
+//         cin >> arr[i];
+//         suma += arr[i] / delilac;
+//     }
+//     cout << "ovo je prosek " << suma;
+// }
+//=====================================================================
+// Zadatak 3 broj koji je najveci pomocu da tih kombinacija
+// int main()
+// {
+//     int a, b, c;
+//     cout << "Unesi brojeve" << endl;
+//     cin >> a >> b >> c;
+
+//     int result1 = a + b + c;
+//     int result2 = a + b * c;
+//     int result3 = a * b + c;
+//     int result4 = a * b * c;
+//     int result5 = a * (b + c);
+//     int result6 = (a * b) + c;
+//     int maxResult = max({result1, result2, result3, result4, result5, result6});
+//     cout << maxResult << endl;
+//     return 0;
+// }
+//==============================================================================
+// // zadatak 4
+// // n problema
+// // trebace mu 5* i da resi i-ti problem
+// // potrebno mu je k minuta da stigne od svoje kuce
+// int main()
+// {
+//     int n, k;
+//     cout << "unesi broj zadataka na takmicenju" << endl;
+//     cin >> n;
+//     cout << "broj minuta koje zejd treba da stigne  do zabave" << endl;
+//     cin >> k;
+//     int vremeResavanjaProblema = 0;
+//     int maxVreme = 240;
+//     int counter = 0;
+
+//     for (int i = 1; i <= n; i++)
+//     {
+//         cout << "vreme resavanja problema - " << vremeResavanjaProblema << "i*5" << i * 5;
+//         if (maxVreme >= vremeResavanjaProblema + i * 5 + k)
+//         // ovo mora ovako jer vremeresavanja problema vazi sumu sve do te iteracije i + i*5 tr iteracija
+//         {
+//             vremeResavanjaProblema += i * 5;
+//             counter++;
+//         }
+//         else
+//         {
+//             break;
+//         }
+//     }
+
+//     return 0;
+// }
