@@ -552,7 +552,7 @@ using namespace std;
 //     cout << "trenutno je dostupno " << max << " sobe" << endl;
 // }
 //====================================================================================
-// 2 zadatak
+// 1 zadatak
 // n brojeva zadataka
 // int main()
 // {
@@ -576,7 +576,7 @@ using namespace std;
 //     cout << "sigurni su da ce resiti " << max << "zadataka";
 // }
 //====================================================================================
-// 3 zadatak
+// 2 zadatak
 // k kuca prijatelja
 // int main()
 // {
@@ -597,7 +597,7 @@ using namespace std;
 //     return 0;
 // }
 //====================================================================================
-// 4 zadatak vojnik i banane
+// 3 zadatak vojnik i banane
 // k cena prve banane
 // n pocetni broj dolara
 // v broj banana koje zeli
@@ -624,7 +624,7 @@ using namespace std;
 //     itsEnought > 0 ? cout << 0 : cout << "Potrebno mu je jos " << kolikoMuTreba;
 // }
 //====================================================================================
-// // 5 zadatak da li je u ravnotezi
+// // 4 zadatak da li je u ravnotezi
 // int main()
 // {
 //     int n, aSum = 0, bSum = 0, cSum = 0;
@@ -647,6 +647,7 @@ using namespace std;
 //     max == 0 ? cout << "da" : cout << "ne";
 // }
 //================================================================================
+// 5 zadatak
 // int main()
 // {
 //     int k, n, aSum = 0, bSum = 0, cSum = 0;
@@ -669,7 +670,7 @@ using namespace std;
 //     cout << n;
 // }
 //=============================================================
-// // 7 zadatak voz
+// // 6 zadatak voz
 // // ai koji izlaze
 // // bi koji ulaze
 // // Prvi red sadrži jedan broj n (2 ≤ n ≤ 1000) — broj tramvajskih stanica.​
@@ -708,7 +709,7 @@ using namespace std;
 //     cout << "ovo su min - " << min << "i voz je na kraju prazan jer su svi otisli" << putnici << endl;
 // }
 //======================================================================
-// // 8 zadatak
+// // 7 zadatak
 // // h visina
 // // ai = visine i-te osobe
 // // znaci samo treba da proveris ako je osoba veca od visine * 2 ili h*2 onda se racuna sirina
@@ -746,7 +747,7 @@ using namespace std;
 //     cout << "ovo je sirina " << sirina;
 // }
 //====================================================================================
-// // 9 zadatak
+// // 8 zadatak
 // // 0 = problem je lak
 // // 1 problem je tezak
 // int main()
@@ -769,7 +770,7 @@ using namespace std;
 //     suma < 1 ? cout << "EASY" : cout << "HARD";
 // }
 //====================================================================================
-// // zadatak 10
+// // zadatak 9
 // // pi = koliko vec ima ljudi u sobe
 // // ki = kapacitet sobe
 // int main()
@@ -798,7 +799,7 @@ using namespace std;
 //     return 0;
 // }
 //====================================================================================
-// // zadatak 11
+// // zadatak 10
 // // n = broj koliko ce ispisati parnih i neparnih npr 5 =  1,3,5,2,4
 // // k pozicija u niz
 // int main()
@@ -830,7 +831,7 @@ using namespace std;
 //     return 0;
 // }
 //==============================================================
-// 1 zadatak za pripremu
+// 1 zadatak za pripremu ispita
 // int main()
 // {
 //     int n, delilac;
@@ -849,7 +850,7 @@ using namespace std;
 //     cout << "ovo je prosek " << suma;
 // }
 //=====================================================================
-// Zadatak 3 broj koji je najveci pomocu da tih kombinacija
+// Zadatak 3  za test broj koji je najveci pomocu da tih kombinacija
 // int main()
 // {
 //     int a, b, c;
@@ -867,7 +868,7 @@ using namespace std;
 //     return 0;
 // }
 //==============================================================================
-// // zadatak 4
+// // zadatak 4 za test
 // // n problema
 // // trebace mu 5* i da resi i-ti problem
 // // potrebno mu je k minuta da stigne od svoje kuce
@@ -880,7 +881,7 @@ using namespace std;
 //     cin >> k;
 //     int vremeResavanjaProblema = 0;
 //     int maxVreme = 240;
-//     int counter = 0;
+//     int brojZadataka = 0;
 
 //     for (int i = 1; i <= n; i++)
 //     {
@@ -889,13 +890,14 @@ using namespace std;
 //         // ovo mora ovako jer vremeresavanja problema vazi sumu sve do te iteracije i + i*5 tr iteracija
 //         {
 //             vremeResavanjaProblema += i * 5;
-//             counter++;
+//             brojZadataka++;
 //         }
 //         else
 //         {
 //             break;
 //         }
 //     }
+// cout << "Broj zadataka" << brojZadataka;
 
 //     return 0;
 // }
