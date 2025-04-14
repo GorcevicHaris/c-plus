@@ -643,6 +643,7 @@ using namespace std;
 //         aSum += a;
 //         bSum += b;
 //         cSum += c;
+//         max = aSum + bSum + cSum;
 //     }
 //     max == 0 ? cout << "da" : cout << "ne";
 // }
@@ -840,14 +841,19 @@ using namespace std;
 //     cout << "unesi delilac" << endl;
 //     cin >> delilac;
 //     int arr[n];
-//     int suma = 0;
+//     double suma = 0;
+//     int counter = 0;
+//     cout << "unesi elemente niza";
 //     for (int i = 0; i < n; i++)
 //     {
-//         cout << "Unesi" << i + 1 << " element niza" << endl;
 //         cin >> arr[i];
-//         suma += arr[i] / delilac;
+//         if (arr[i] % delilac == 0)
+//         {
+//             counter++;
+//             suma = suma + arr[i];
+//         }
 //     }
-//     cout << "ovo je prosek " << suma;
+//     cout << suma / counter << endl;
 // }
 //=====================================================================
 // Zadatak 3  za test broj koji je najveci pomocu da tih kombinacija
@@ -868,13 +874,14 @@ using namespace std;
 //     return 0;
 // }
 //==============================================================================
-// // zadatak 4 za test
-// // n problema
-// // trebace mu 5* i da resi i-ti problem
-// // potrebno mu je k minuta da stigne od svoje kuce
+// zadatak 4 za test
+// n problema
+// trebace mu 5* i da resi i-ti problem
+// potrebno mu je k minuta da stigne od svoje kuce
 // int main()
 // {
 //     int n, k;
+
 //     cout << "unesi broj zadataka na takmicenju" << endl;
 //     cin >> n;
 //     cout << "broj minuta koje zejd treba da stigne  do zabave" << endl;
@@ -897,7 +904,44 @@ using namespace std;
 //             break;
 //         }
 //     }
-// cout << "Broj zadataka" << brojZadataka;
+//     cout << "Broj zadataka" << brojZadataka;
 
 //     return 0;
+// }
+//=================================================================================
+// 10 zadatak drugaciji nacin
+// int main()
+// {
+//     int n, k;
+//     cout << "unesi broj do kojeg ce ici brojevi";
+//     cin >> n;
+//     cout << "unesi poziciju";
+//     cin >> k;
+//     int pozicija = 0;
+//     // ako unesen n = 10    k = 2
+//     if (k > n)
+//     {
+//         cout << "pozicijan ne moze biti veca od duzine brojeva" << endl;
+//         return 1;
+//     }
+//     for (int i = 1; i <= n; i += 2)
+//     {
+//         pozicija++;
+//         if (pozicija == k)
+//         {
+//             cout << "ovo je na vasoj poziciji " << i << endl;
+//             break;
+//         }
+//         cout << i << endl;
+//     }
+//     for (int i = 2; i <= n; i += 2)
+//     {
+//         pozicija++;
+//         if (pozicija == k)
+//         {
+//             cout << "ovo je na vasoj poziciji" << i << endl;
+//             break;
+//         }
+//         cout << i << endl;
+//     }
 // }
