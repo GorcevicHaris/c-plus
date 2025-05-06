@@ -1,0 +1,34 @@
+#ifndef OSOBE_H
+#define OSOBE_H
+
+class Osoba
+{
+    char ime[31], datum[11], adresa[31];
+
+public:
+    Osoba() { ime[0] = datum[0] = adresa[0] = 0; }
+    virtual void citaj();
+    virtual void pisi() const;
+};
+
+class Djak : public Osoba
+{
+    char skola[31], razred[7];
+
+public:
+    Djak() : Osoba() { skola[0] = razred[0] = 0; }
+    void citaj();
+    void pisi() const;
+};
+
+class Zaposlen : public Osoba
+{
+    char firma[31], odeljenje[31];
+
+public:
+    Zaposlen() : Osoba() { firma[0] = odeljenje[0] = 0; }
+    void citaj();
+    void pisi() const;
+};
+
+#endif

@@ -945,3 +945,123 @@ using namespace std;
 //         cout << i << endl;
 //     }
 // }
+//============================================================================
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+// Definicija klasa
+class Osoba
+{
+    char ime[31], datum[11], adresa[31];
+
+public:
+    Osoba() { ime[0] = datum[0] = adresa[0] = 0; }
+    virtual void citaj()
+    {
+        cout << "Ime i prezime? ";
+        cin >> ws;
+        cin.getline(ime, 31);
+        cout << "Datum rodjenja? ";
+        cin.getline(datum, 11);
+        cout << "Adresa stanovanja? ";
+        cin.getline(adresa, 31);
+    }
+    virtual void pisi() const
+    {
+        cout << "Ime i prezime: " << ime << endl;
+        cout << "Datum rodjenja: " << datum << endl;
+        cout << "Adresa stanovanja: " << adresa << endl;
+    }
+    virtual ~Osoba() {} // Virtualni destruktor
+};
+
+class Djak : public Osoba
+{
+    char skola[31], razred[7];
+
+public:
+    Djak() : Osoba() { skola[0] = razred[0] = 0; }
+    void citaj() override
+    {
+        Osoba::citaj();
+        cout << "Naziv skole? ";
+        cin.getline(skola, 31);
+        cout << "Razred? ";
+        cin.getline(razred, 7);
+    }
+    void pisi() const override
+    {
+        Osoba::pisi();
+        cout << "Naziv skole: " << skola << endl;
+        cout << "Razred: " << razred << endl;
+    }
+};
+
+class Zaposlen : public Osoba
+{
+    char firma[31], odeljenje[31];
+
+public:
+    Zaposlen() : Osoba() { firma[0] = odeljenje[0] = 0; }
+    void citaj() override
+    {
+        Osoba::citaj();
+        cout << "Naziv firme? ";
+        cin.getline(firma, 31);
+        cout << "Naziv odeljenja? ";
+        cin.getline(odeljenje, 31);
+    }
+    void pisi() const override
+    {
+        Osoba::pisi();
+        cout << "Naziv firme: " << firma << endl;
+        cout << "Naziv odeljenja: " << odeljenje << endl;
+    }
+};
+
+// Glavni program
+int main()
+{
+    Osoba *ljudi[20];
+    int n = 0;
+
+    cout << "Citanje podataka o ljudima\n";
+    while (true)
+    {
+        cout << "\nIzbor (O=osoba, D=djak, Z=zaposlen, K=kraj)? ";
+        char izbor;
+        cin >> izbor;
+        if (izbor == 'K' || izbor == 'k')
+            break;
+
+        ljudi[n] = nullptr;
+        switch (izbor)
+        {
+        case 'O':
+        case 'o':
+            ljudi[n] = new Osoba;
+            break;
+        case 'D':
+        case 'd':
+            ljudi[n] = new Djak;
+            break;
+        case 'Z':
+        case 'z':
+            ljudi[n] = new Zaposlen;
+            break;
+        }
+        if (ljudi[n])
+            ljudi[n++]->citaj();
+    }
+
+    cout << "\nPrikaz procitanih podataka\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << endl;
+        ljudi[i]->pisi();
+        delete ljudi[i]; // Oslobadjanje memorije
+    }
+
+    return 0;
+}
