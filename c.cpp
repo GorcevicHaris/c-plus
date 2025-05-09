@@ -936,7 +936,7 @@ using namespace std;
 //     }
 //     for (int i = 2; i <= n; i += 2)
 //     {
-//         pozicija++;
+//         pozicija5++;
 //         if (pozicija == k)
 //         {
 //             cout << "ovo je na vasoj poziciji" << i << endl;
@@ -960,12 +960,11 @@ public:
     virtual void citaj()
     {
         cout << "Ime i prezime? ";
-        cin >> ws;
-        cin.getline(ime, 31);
+        cin >> ime;
         cout << "Datum rodjenja? ";
-        cin.getline(datum, 11);
+        cin >> datum;
         cout << "Adresa stanovanja? ";
-        cin.getline(adresa, 31);
+        cin >> adresa;
     }
     virtual void pisi() const
     {
@@ -1065,3 +1064,4 @@ int main()
 
     return 0;
 }
+//
