@@ -946,112 +946,156 @@ using namespace std;
 //     }
 // }
 //============================================================================
-#include <iostream>
-#include <string>
-using namespace std;
-class Osoba
-{
-    char ime[31], datum[11], adresa[31];
+// #include <iostream>
+// #include <string>
+// using namespace std;
+// class Osoba
+// {
+//     char ime[31], datum[11], adresa[31];
 
-public:
-    Osoba() { ime[0] = datum[0] = adresa[0] = 0; }
-    virtual void citaj()
-    {
-        cout << "Ime i prezime";
-        cin >> ime;
-        cout << "datum";
-        cin >> datum;
-        cout << "adresa";
-        cin >> adresa;
-    }
-    virtual void pisi() const
-    {
-        cout << "ime i prezime " << ime << endl;
-        cout << "Datum rodjenja " << datum << endl;
-        cout << "Adresa stanovanja " << adresa << endl;
-    }
-    virtual ~Osoba() {};
-};
-class Djak : public Osoba
-{
-    char skola[31], razred[7];
-
-public:
-    Djak() : Osoba() { skola[0] = razred[0] = 0; }
-    void citaj() override
-    {
-        Osoba::
-            citaj();
-        cout << "naziv skole ";
-        cin >> skola;
-        cout << " razred";
-        cin >> razred;
-    }
-    void pisi() const override
-    {
-        Osoba::pisi();
-        cout << "Naziv skole: " << skola << endl;
-        cout << "Razred: " << razred << endl;
-    }
-};
-int main()
-{
-    Osoba *ljudi[20];
-    int n = 0;
-
-    cout << "citanje podataka o ljduima \n";
-    while (true)
-    {
-        cout << "\nIzbor (O = osoba,D = Djak,K = kraj)";
-        char izbor;
-        cin >> izbor;
-        if (izbor == 'K' || izbor == 'k')
-        {
-            break;
-        }
-        ljudi[n] = nullptr;
-        switch (izbor)
-        {
-        case 'O':
-        case 'o':
-            ljudi[n] = new Osoba;
-            break;
-        case 'D':
-        case 'd':
-            ljudi[n] = new Djak;
-            break;
-        default:
-            break;
-        }
-        if (ljudi[n])
-        {
-            ljudi[n++]->citaj();
-        }
-    }
-    cout << "\nPrikaz procitanih podataka\n";
-    for (int i = 0; i < n; i++)
-    {
-        cout << endl;
-        ljudi[i]->pisi();
-        delete ljudi[i];
-    }
-    return 0;
-}
-
-// Glavni program
-
-//         if (ljudi[n])
-//             ljudi[n++]->citaj();
+// public:
+//     Osoba() { ime[0] = datum[0] = adresa[0] = 0; }
+//     virtual void citaj()
+//     {
+//         cout << "Ime i prezime";
+//         cin >> ime;
+//         cout << "datum";
+//         cin >> datum;
+//         cout << "adresa";
+//         cin >> adresa;
 //     }
+//     virtual void pisi() const
+//     {
+//         cout << "ime i prezime " << ime << endl;
+//         cout << "Datum rodjenja " << datum << endl;
+//         cout << "Adresa stanovanja " << adresa << endl;
+//     }
+//     virtual ~Osoba() {};
+// };
+// class Djak : public Osoba
+// {
+//     char skola[31], razred[7];
 
+// public:
+//     Djak() : Osoba() { skola[0] = razred[0] = 0; }
+//     void citaj()
+//     {
+//         Osoba::
+//             citaj();
+//         cout << "naziv skole ";
+//         cin >> skola;
+//         cout << " razred";
+//         cin >> razred;
+//     }
+//     void pisi()
+//     {
+//         Osoba::pisi();
+//         cout << "Naziv skole: " << skola << endl;
+//         cout << "Razred: " << razred << endl;
+//     }
+// };
+// int main()
+// {
+//     Osoba *ljudi[20];
+//     int n = 0;
+
+//     cout << "citanje podataka o ljduima \n";
+//     while (true)
+//     {
+//         cout << "\nIzbor (O = osoba,D = Djak,K = kraj)";
+//         char izbor;
+//         cin >> izbor;
+//         if (izbor == 'K' || izbor == 'k')
+//         {
+//             break;
+//         }
+//         ljudi[n] = nullptr;
+//         switch (izbor)
+//         {
+//         case 'O':
+//         case 'o':
+//             ljudi[n] = new Osoba;
+//             break;
+//         case 'D':
+//         case 'd':
+//             ljudi[n] = new Djak;
+//             break;
+//         default:
+//             break;
+//         }
+//         if (ljudi[n])
+//         {
+//             ljudi[n++]->citaj();
+//         }
+//     }
 //     cout << "\nPrikaz procitanih podataka\n";
 //     for (int i = 0; i < n; i++)
 //     {
 //         cout << endl;
 //         ljudi[i]->pisi();
-//         delete ljudi[i]; // Oslobadjanje memorije
+//         delete ljudi[i];
 //     }
-
 //     return 0;
 // }
-//===================================================================================
+
+// // Glavni program
+
+// //         if (ljudi[n])
+// //             ljudi[n++]->citaj();
+// //     }
+
+// //     cout << "\nPrikaz procitanih podataka\n";
+// //     for (int i = 0; i < n; i++)
+// //     {
+// //         cout << endl;
+// //         ljudi[i]->pisi();
+// //         delete ljudi[i]; // Oslobadjanje memorije
+// //     }
+
+// //     return 0;
+// // }
+// //===================================================================================
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Tacka
+{
+    double x, y; // Koordinate.
+public:
+    void postavi(double a, double b)
+    { // Postavljanje koordinata.
+        x = a;
+        y = b;
+    }
+    double aps() const { return x; } // Apscisa.
+    double ord() const { return y; } // Ordinata.
+    double rastojanje(Tacka t) const
+    { // Rastojanje do tacke.
+        return sqrt(pow(x - t.x, 2) + pow(y - t.y, 2));
+    }
+    friend Tacka citaj(); // Citanje tacke.
+    friend void pisi(Tacka);
+};
+
+Tacka citaj()
+{ // Citanje tacke.
+    Tacka t;
+    cin >> t.x >> t.y;
+    return t;
+}
+
+void pisi(Tacka t)
+{
+    cout << t.x << t.y;
+}
+
+int main()
+{
+    cout << "t1? ";
+
+    cout << "t2? ";
+    Tacka t2 = citaj();
+    pisi(t2);
+    return 0;
+}
