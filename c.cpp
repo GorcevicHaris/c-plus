@@ -1055,47 +1055,111 @@ using namespace std;
 // //     return 0;
 // // }
 // //===================================================================================
-#include <iostream>
-#include <cmath>
-using namespace std;
+// #include <iostream>
+// #include <cmath>
+// using namespace std;
 
-class Tacka
-{
-    double x, y; // Koordinate.
-public:
-    void postavi(double a, double b)
-    { // Postavljanje koordinata.
-        x = a;
-        y = b;
-    }
-    double aps() const { return x; } // Apscisa.
-    double ord() const { return y; } // Ordinata.
-    double rastojanje(Tacka t) const
-    { // Rastojanje do tacke.
-        return sqrt(pow(x - t.x, 2) + pow(y - t.y, 2));
-    }
-    friend Tacka citaj(); // Citanje tacke.
-    friend void pisi(Tacka);
-};
+// class Tacka
+// {
+//     double x, y;
+//     int a, b;
 
-Tacka citaj()
-{ // Citanje tacke.
-    Tacka t;
-    cin >> t.x >> t.y;
-    return t;
-}
+// public:
+//     // Funkcija za postavljanje koordinata tačke
+//     void postavi(double a, double b)
+//     {
+//         x = a;
+//         y = b;
+//     }
+//     void postavka(int v, int c)
+//     {
+//         a = v;
+//         b = c;
+//     }
 
-void pisi(Tacka t)
-{
-    cout << t.x << t.y;
-}
+//     // Funkcije za dohvatanje x i y koordinata
+//     double aps() const
+//     {
+//         return x;
+//     }
+//     double ord() const { return y; }
 
-int main()
-{
-    cout << "t1? ";
+//     // Funkcija za računanje rastojanja između dve tačke
+//     double rastojanje(Tacka t)
+//     {
+//         return sqrt(pow(x - t.x, 2) + pow(y - t.y, 2));
+//     }
 
-    cout << "t2? ";
-    Tacka t2 = citaj();
-    pisi(t2);
-    return 0;
-}
+//     // Funkcija za sumu a i b druge tačke
+//     int suma(Tacka t)
+//     {
+//         return t.a + t.b;
+//     }
+
+//     // Deklaracija prijateljskih funkcija
+//     friend Tacka citaj();
+//     friend Tacka citaj_ab(); // Nova funkcija za unos sa a i b
+//     friend void pisi(Tacka);
+//     friend void pisii(Tacka, Tacka);
+// };
+
+// // Funkcija za unos tačke bez a i b
+// Tacka citaj()
+// {
+//     Tacka t;
+//     cout << "Unesite koordinate tačke (x y): ";
+//     cin >> t.x >> t.y;
+//     return t;
+// }
+
+// // Funkcija za unos tačke sa a i b
+// Tacka citaj_ab()
+// {
+//     Tacka t;
+//     cout << "Unesite koordinate tačke (x y): ";
+//     cin >> t.x >> t.y;
+//     cout << "Unesite vrednosti a i b: ";
+//     cin >> t.a >> t.b;
+//     return t;
+// }
+
+// // Funkcija za ispis tačke
+// void pisi(Tacka t)
+// {
+//     cout << '(' << t.x << ", " << t.y << ')';
+// }
+
+// // Funkcija za ispis dve tačke
+// void pisii(Tacka t1, Tacka t2)
+// {
+//     cout << "Tačka 1: ";
+//     pisi(t1);
+//     cout << "\nTačka 2: ";
+//     pisi(t2);
+//     cout << ", a=" << t2.a << ", b=" << t2.b;
+//     cout << endl;
+// }
+
+// int main()
+// {
+//     Tacka t1, t2;
+
+//     // Unos prve tačke (samo x, y)
+//     cout << "Unesite prvu tačku (t1):" << endl;
+//     t1 = citaj();
+
+//     // Unos druge tačke (x, y, a, b)
+//     cout << "Unesite drugu tačku (t2):" << endl;
+//     t2 = citaj_ab();
+
+//     // Ispis tačaka
+//     pisii(t1, t2);
+
+//     // Računanje i ispis rastojanja
+//     cout << "Rastojanje između tačaka: " << t1.rastojanje(t2) << endl;
+
+//     // Ispis sume a i b druge tačke
+//     cout << "Suma a i b druge tačke (t2): " << t1.suma(t2) << endl;
+
+//     return 0;
+// }
