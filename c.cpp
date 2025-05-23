@@ -1164,162 +1164,6 @@ using namespace std;
 //     return 0;
 // }
 //================================================================================
-// #include <iostream>
-// using namespace std;
-
-// class Vozilo
-// {
-//     double sopstvenaTezina;
-
-// public:
-//     Vozilo(double st)
-//     {
-//         sopstvenaTezina = st;
-//     }
-
-//     virtual char vrsta() const = 0; // Vrsta vozila.
-
-//     virtual double tezina() const
-//     {
-//         return sopstvenaTezina;
-//     } // Ukupna tezina.
-
-// protected:
-//     virtual void pisi(ostream &it) const
-//     {
-//         it << vrsta() << '(' << sopstvenaTezina << ',';
-//     }
-
-//     friend ostream &operator<<(ostream &it, const Vozilo &v)
-//     {
-//         v.pisi(it);
-//         return it;
-//     }
-// };
-
-// class PutnickoVozilo : public Vozilo
-// {
-//     double srednjaTezinaPutnika;
-//     int brojPutnika;
-
-// public:
-//     PutnickoVozilo(double st, double srt, int bp) : Vozilo(st)
-//     {
-//         srednjaTezinaPutnika = srt;
-//         brojPutnika = bp;
-//     }
-
-//     char vrsta() const override
-//     {
-//         return 'P';
-//     }
-
-//     double tezina() const override
-//     {
-//         return Vozilo::tezina() + srednjaTezinaPutnika * brojPutnika;
-//     }
-
-// private:
-//     void pisi(ostream &it) const override
-//     {
-//         Vozilo::pisi(it);
-//         it << srednjaTezinaPutnika << ',' << brojPutnika << ')';
-//     }
-// };
-
-// class TeretnoVozilo : public Vozilo
-// {
-//     double tezinaTereta;
-
-// public:
-//     TeretnoVozilo(double st, double t) : Vozilo(st)
-//     {
-//         tezinaTereta = t;
-//     }
-
-//     char vrsta() const override
-//     {
-//         return 'T';
-//     }
-
-//     double tezina() const override
-//     {
-//         return Vozilo::tezina() + tezinaTereta;
-//     }
-
-// private:
-//     void pisi(ostream &it) const override
-//     {
-//         Vozilo::pisi(it);
-//         it << tezinaTereta << ')';
-//     }
-// };
-
-// int main()
-// {
-//     Vozilo *vozila[100];
-//     int n = 0;
-
-//     while (true)
-//     {
-//         cout << "\nVrsta vozila (T,P,*)? ";
-//         char vrsta;
-//         cin >> vrsta;
-//         if (vrsta == '*')
-//             break;
-
-//         switch (vrsta)
-//         {
-//         case 't':
-//         case 'T':
-//         {
-//             cout << "Sopstvena tezina? ";
-//             double sTez;
-//             cin >> sTez;
-//             cout << "Tezina tereta? ";
-//             double ter;
-//             cin >> ter;
-//             vozila[n++] = new TeretnoVozilo(sTez, ter);
-//             break;
-//         }
-//         case 'p':
-//         case 'P':
-//         {
-//             cout << "Sopstvena tezina? ";
-//             double sTez;
-//             cin >> sTez;
-//             cout << "Sr. tezina putnika? ";
-//             double srTez;
-//             cin >> srTez;
-//             cout << "Broj putnika? ";
-//             int brPut;
-//             cin >> brPut;
-//             vozila[n++] = new PutnickoVozilo(sTez, srTez, brPut);
-//             break;
-//         }
-//         default:
-//             cout << "*** Nepoznata vrsta vozila!\n";
-//         }
-//     }
-
-//     cout << "\nNosivost mosta? ";
-//     double nosivost;
-//     cin >> nosivost;
-
-//     cout << "\nMogu da predju most:\n";
-//     for (int i = 0; i < n; i++)
-//     {
-//         if (vozila[i]->tezina() <= nosivost)
-//         {
-//             cout << *vozila[i] << " - " << vozila[i]->tezina() << endl;
-//         }
-//     }
-
-//     for (int i = 0; i < n; delete vozila[i++])
-//         ;
-//     return 0;
-// }
-//==================================================================================
 // class Osoba
 // {
 // public:
@@ -1386,3 +1230,245 @@ using namespace std;
 //     pustiZvuk(&p); // poziva Pas::napraviZvuk
 //     pustiZvuk(&m); // poziva Macka::napraviZvuk
 // }
+// //=========================================================================
+// #include <iostream>
+// using namespace std;
+
+// class Vozilo
+// {
+//     double sopstvenaTezina;
+
+// public:
+//     Vozilo(double st) : sopstvenaTezina(st) {}
+
+//     virtual char vrsta() const = 0;
+//     virtual double tezina() const { return sopstvenaTezina; }
+
+//     virtual void ispisi() const
+//     {
+//         cout << vrsta() << "(" << sopstvenaTezina << ")";
+//     }
+// };
+
+// class PutnickoVozilo : public Vozilo
+// {
+//     double srednjaTezinaPutnika;
+//     int brojPutnika;
+
+// public:
+//     PutnickoVozilo(double st, double srt, int bp)
+//         : Vozilo(st), srednjaTezinaPutnika(srt), brojPutnika(bp) {}
+//     char vrsta() const override { return 'P'; }
+
+//     double tezina() const override
+//     {
+//         return Vozilo::tezina() + srednjaTezinaPutnika * brojPutnika;
+//     }
+
+//     void ispisi() const override
+//     {
+//         cout << vrsta() << "(" << Vozilo::tezina() << "," << srednjaTezinaPutnika << "," << brojPutnika << ")";
+//     }
+// };
+
+// class TeretnoVozilo : public Vozilo
+// {
+//     double tezinaTereta;
+// public:
+//     TeretnoVozilo(double st, double t) : Vozilo(st), tezinaTereta(t) {}
+//     char vrsta() const override { return 'T'; }
+//     double tezina() const override
+//     {
+//         return Vozilo::tezina() + tezinaTereta;
+//     }
+
+//     void ispisi() const override
+//     {
+//         cout << vrsta() << "(" << Vozilo::tezina() << "," << tezinaTereta << ")";
+//     }
+// };
+
+// int main()
+// {
+//     Vozilo *vozila[100];
+//     int n = 0;
+//     while (true)
+//     {
+//         cout << "Vrsta vozila (T,P,*)? ";
+//         char vrsta;
+//         cin >> vrsta;
+//         if (vrsta == '*')
+//             break;
+//         if (vrsta == 'T' || vrsta == 't')
+//         {
+//             cout << "Sopstvena tezina? ";
+//             double sTez;
+//             cin >> sTez;
+//             cout << "Tezina tereta? ";
+//             double ter;
+//             cin >> ter;
+//             vozila[n++] = new TeretnoVozilo(sTez, ter);
+//         }
+//         else if (vrsta == 'P' || vrsta == 'p')
+//         {
+//             cout << "Sopstvena tezina? ";
+//             double sTez;
+//             cin >> sTez;
+//             cout << "Sr. tezina putnika? ";
+//             double srTez;
+//             cin >> srTez;
+//             cout << "Broj putnika? ";
+//             int brPut;
+//             cin >> brPut;
+//             vozila[n++] = new PutnickoVozilo(sTez, srTez, brPut);
+//         }
+//         else
+//         {
+//             cout << "*** Nepoznata vrsta vozila!\n";
+//         }
+//     }
+//     cout << "Nosivost mosta? ";
+//     double nosivost;
+//     cin >> nosivost
+//     cout << "\nVozila koja mogu da predju most:\n";
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (vozila[i]->tezina() <= nosivost)
+//         {
+//             vozila[i]->ispisi();
+//             cout << " - " << vozila[i]->tezina() << " kg\n";
+//         }
+//     }
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         delete vozila[i];
+//     }
+//     return 0;
+// }
+//======================================================================================
+class Vozilo
+{
+    double sopstvenaTezina;
+
+public:
+    Vozilo(double st) : sopstvenaTezina(st) {}
+    virtual char vrsta() const = 0;
+    virtual double tezina() const { return sopstvenaTezina; }
+    virtual void ispisi() const
+    {
+        cout << vrsta() << "(" << sopstvenaTezina << ")";
+    }
+};
+
+class PutnickoVozilo : public Vozilo
+{
+    double srednjaTezinaPutnika;
+    int brojPutnika;
+
+public:
+    PutnickoVozilo(double srednjaT, double SrednjaTzPutnika, int brojPutnika) : Vozilo(srednjaT), srednjaTezinaPutnika(SrednjaTzPutnika), brojPutnika(brojPutnika) {}
+    char vrsta() const override { return 'P'; }
+
+    double tezina() const override
+    {
+        return Vozilo::tezina() + srednjaTezinaPutnika * brojPutnika;
+    }
+    void ispisi() const override
+    {
+        cout << vrsta() << "(" << Vozilo::tezina() << "," << srednjaTezinaPutnika << "," << brojPutnika << ")";
+    }
+};
+class TeretnoVozilo : public Vozilo
+{
+    double tezinaTereta;
+
+public:
+    TeretnoVozilo(double st, double tt) : Vozilo(st), tezinaTereta(tt) {}
+    char vrsta() const override { return 'T'; }
+    double tezina() const override
+    {
+        return Vozilo::tezina() + tezinaTereta;
+    }
+    void ispisi() const override
+    {
+        cout << vrsta() << "(" << Vozilo::tezina() << "," << tezinaTereta << ")";
+    }
+};
+int main()
+{
+    Vozilo *vozila[100];
+    int n = 0;
+    while (true)
+    {
+        cout << "Vrsta vozila (T,P,*)";
+        char vrsta;
+        cin >> vrsta;
+        if (vrsta == '*')
+        {
+            break;
+        }
+        if (vrsta == 'T' || vrsta == 't')
+        {
+            cout << "Sopstvena tezina ?";
+            double sopstvenaTezina;
+            cin >> sopstvenaTezina;
+            cout << "Tezina tereta? ";
+            double ter;
+            cin >> ter;
+            vozila[n++] = new TeretnoVozilo(sopstvenaTezina, ter);
+        }
+        else if (vrsta == 'P' || vrsta == 'p')
+        {
+            cout << "Sopstvena tezina? ";
+            double sTez;
+            cin >> sTez;
+            cout << "Sr. tezina putnika? ";
+            double srTez;
+            cin >> srTez;
+            cout << "Broj putnika? ";
+            int brPut;
+            cin >> brPut;
+            vozila[n++] = new PutnickoVozilo(sTez, srTez, brPut);
+        }
+        else
+        {
+            cout << "Nepoznata vrsta vozila !\n";
+        }
+    }
+
+    cout << "Nosivost mosta ?";
+    double nosivost;
+    cin >> nosivost;
+    cout << "\nVozila koja mogu da predju most:\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        if (vozila[i]->tezina() <= nosivost)
+        {
+            vozila[i]->ispisi();
+            cout << " - " << vozila[i]->tezina() << " kg \n";
+        }
+    }
+    return 0;
+}
+//     cout << "Nosivost mosta? ";
+//     double nosivost;
+//     cin >> nosivost
+//     cout << "\nVozila koja mogu da predju most:\n";
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (vozila[i]->tezina() <= nosivost)
+//         {
+//             vozila[i]->ispisi();
+//             cout << " - " << vozila[i]->tezina() << " kg\n";
+//         }
+//     }
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         delete vozila[i];
+//     }
+//     return 0;
+// }
+//=========
