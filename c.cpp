@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+#include <cmath>
 // int main()
 // {
 //     int a, b;
@@ -1055,112 +1055,60 @@ using namespace std;
 // //     return 0;
 // // }
 // //===================================================================================
-// #include <iostream>
-// #include <cmath>
-// using namespace std;
-
 // class Tacka
 // {
 //     double x, y;
 //     int a, b;
 
 // public:
-//     // Funkcija za postavljanje koordinata tačke
-//     void postavi(double a, double b)
+//     void unesi()
 //     {
-//         x = a;
-//         y = b;
-//     }
-//     void postavka(int v, int c)
-//     {
-//         a = v;
-//         b = c;
+//         cout << "Unesite prvu tačku (t1):" << endl;
+//         cout << "Unesite koordinate tačke (x y): ";
+//         cin >> x >> y;
 //     }
 
-//     // Funkcije za dohvatanje x i y koordinata
-//     double aps() const
+//     void unesi_ab()
 //     {
-//         return x;
+//         cout << "Unesite drugu tačku (t2):" << endl;
+//         cout << "Unesite koordinate tačke (x y): ";
+//         cin >> x >> y;
+//         cout << "Unesite vrednosti a i b: ";
+//         cin >> a >> b;
 //     }
-//     double ord() const { return y; }
 
-//     // Funkcija za računanje rastojanja između dve tačke
+//     void pisi()
+//     {
+//         cout << "Tacka 1 :" << endl;
+//         cout << '(' << x << ", " << y << ')';
+//     }
+
+//     void pisi_sa_ab()
+//     {
+//         cout << "Tacka 2 :" << endl;
+//         cout << '(' << x << ", " << y << "), a=" << a << ", b=" << b;
+//     }
+
 //     double rastojanje(Tacka t)
 //     {
 //         return sqrt(pow(x - t.x, 2) + pow(y - t.y, 2));
 //     }
 
-//     // Funkcija za sumu a i b druge tačke
 //     int suma(Tacka t)
 //     {
 //         return t.a + t.b;
 //     }
-
-//     // Deklaracija prijateljskih funkcija
-//     friend Tacka citaj();
-//     friend Tacka citaj_ab(); // Nova funkcija za unos sa a i b
-//     friend void pisi(Tacka);
-//     friend void pisii(Tacka, Tacka);
 // };
-
-// // Funkcija za unos tačke bez a i b
-// Tacka citaj()
-// {
-//     Tacka t;
-//     cout << "Unesite koordinate tačke (x y): ";
-//     cin >> t.x >> t.y;
-//     return t;
-// }
-
-// // Funkcija za unos tačke sa a i b
-// Tacka citaj_ab()
-// {
-//     Tacka t;
-//     cout << "Unesite koordinate tačke (x y): ";
-//     cin >> t.x >> t.y;
-//     cout << "Unesite vrednosti a i b: ";
-//     cin >> t.a >> t.b;
-//     return t;
-// }
-
-// // Funkcija za ispis tačke
-// void pisi(Tacka t)
-// {
-//     cout << '(' << t.x << ", " << t.y << ')';
-// }
-
-// // Funkcija za ispis dve tačke
-// void pisii(Tacka t1, Tacka t2)
-// {
-//     cout << "Tačka 1: ";
-//     pisi(t1);
-//     cout << "\nTačka 2: ";
-//     pisi(t2);
-//     cout << ", a=" << t2.a << ", b=" << t2.b;
-//     cout << endl;
-// }
 
 // int main()
 // {
 //     Tacka t1, t2;
-
-//     // Unos prve tačke (samo x, y)
-//     cout << "Unesite prvu tačku (t1):" << endl;
-//     t1 = citaj();
-
-//     // Unos druge tačke (x, y, a, b)
-//     cout << "Unesite drugu tačku (t2):" << endl;
-//     t2 = citaj_ab();
-
-//     // Ispis tačaka
-//     pisii(t1, t2);
-
-//     // Računanje i ispis rastojanja
-//     cout << "Rastojanje između tačaka: " << t1.rastojanje(t2) << endl;
-
-//     // Ispis sume a i b druge tačke
-//     cout << "Suma a i b druge tačke (t2): " << t1.suma(t2) << endl;
-
+//     t1.unesi();
+//     t2.unesi_ab();
+//     t1.pisi();
+//     t2.pisi_sa_ab();
+//     cout << "rastojanje izmedju tacaka je " << t1.rastojanje(t2) << endl;
+//     cout << "suma je" << t1.suma(t2);
 //     return 0;
 // }
 //================================================================================
@@ -1347,17 +1295,165 @@ using namespace std;
 //     return 0;
 // }
 //======================================================================================
+// class Vozilo
+// {
+//     double sopstvenaTezina;
+
+// public:
+//     Vozilo(double st) : sopstvenaTezina(st) {};
+//     virtual char Vrsta() = 0;
+//     virtual double Tezina()
+//     {
+//         return sopstvenaTezina;
+//     }
+//     virtual void Ispisi()
+//     {
+//         cout << Vrsta() << "sopstvena tezina " << sopstvenaTezina;
+//     }
+// };
+
+// class PutnickoVozilo : public Vozilo
+// {
+//     double srednjaTezinaPutnika;
+//     int brojPutnika;
+
+// public:
+//     PutnickoVozilo(double sT, double stP, int bP) : Vozilo(sT), srednjaTezinaPutnika(stP), brojPutnika(bP) {};
+//     char Vrsta() override { return 'P'; }
+//     double Tezina() override
+//     {
+//         return Vozilo::Tezina() + srednjaTezinaPutnika * brojPutnika;
+//     }
+//     void ispisi()
+//     {
+//         cout << Vrsta() << "(" << Vozilo::Tezina() << "," << srednjaTezinaPutnika << "," << brojPutnika << ")";
+//     }
+// };
+// class TeretnoVozolo : public Vozilo
+// {
+//     double tezinaTereta;
+
+// public:
+//     TeretnoVozolo(double sT, double tT) : Vozilo(sT), tezinaTereta(tT) {};
+//     char Vrsta() override
+//     {
+//         return 'T';
+//     }
+//     double Tezina() override
+//     {
+//         return Vozilo::Tezina() + tezinaTereta;
+//     }
+//     virtual void Ispisi()
+//     {
+//         cout << Vrsta() << "sopstvena tezina : " << Vozilo::Tezina() << "tezina tereta:" << tezinaTereta;
+//     }
+// };
+// int main()
+// {
+//     Vozilo *vozila[100];
+//     int n = 0;
+
+//     while (true)
+//     {
+//         cout << "unesi (t,p,*)";
+//         char vrsta;
+//         cin >> vrsta;
+//         if (vrsta == '*')
+//         {
+//             break;
+//         }
+//         if (vrsta == 'p')
+//         {
+//             cout << "unesi sopstvenu tezinu :";
+//             double sT;
+//             cin >> sT;
+//             cout << "unesi srednju tezinu putnika";
+//             double stP;
+//             cin >> stP;
+//             cout << "unesi broj putnika";
+//             int bP;
+//             cin >> bP;
+//             vozila[n++] = new PutnickoVozilo(sT, stP, bP);
+//         }
+//         else if (vrsta == 't')
+//         {
+//             cout << "unesi sopstvenu tezinu :";
+//             double sT;
+//             cin >> sT;
+//             cout << "unesi tezinu tereta :";
+//             double tezinaTereta;
+//             cin >> tezinaTereta;
+//             vozila[n++] = new TeretnoVozolo(sT, tezinaTereta);
+//         }
+//     }
+//     cout << "Unesi nosivost mosta";
+//     double nosivost;
+//     cin >> nosivost;
+//     cout << "\nVozila koja mogu da predju most:\n";
+//     for (int i = 0; i < n; i++)
+//     {
+//         if ((*vozila[i]).Tezina() <= nosivost)
+//         {
+//             vozila[i]->Ispisi();
+//         }
+//     }
+//     return 0;
+// }
+//===========================================================
+// #include <iostream>
+// using namespace std;
+
+// class Pravougaonik
+// {
+//     double sirina, visina;
+
+// public:
+
+//     double Povrsina()
+//     {
+//         return sirina * visina;
+//     }
+
+//     void Ispisi()
+//     {
+//         cout << "Sirina: " << sirina << ", Visina: " << visina << ", Povrsina: " << Povrsina() << endl;
+//     }
+// };
+
+// int main()
+// {
+//     int n;
+//     cout << "Koliko pravougaonika zelite da unesete? ";
+//     cin >> n;
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         double sirina, visina;
+//         cout << "Unesi sirinu i visinu za pravougaonik #" << (i + 1) << ": ";
+//         cin >> sirina >> visina;
+
+//         Pravougaonik p(sirina, visina);
+//         p.Ispisi();
+//     }
+//     return 0;
+// }
+//=======================================================================================
 class Vozilo
 {
     double sopstvenaTezina;
 
 public:
-    Vozilo(double st) : sopstvenaTezina(st) {}
-    virtual char vrsta() const = 0;
-    virtual double tezina() const { return sopstvenaTezina; }
-    virtual void ispisi() const
+    Vozilo(double st) : sopstvenaTezina(st) {};
+    virtual char Vrsta() = 0;
+
+    virtual double Tezina()
     {
-        cout << vrsta() << "(" << sopstvenaTezina << ")";
+        return sopstvenaTezina;
+    }
+
+    virtual void Ispisi()
+    {
+        cout << Vrsta() << " sopstvena tezina: " << sopstvenaTezina << endl;
     }
 };
 
@@ -1367,108 +1463,238 @@ class PutnickoVozilo : public Vozilo
     int brojPutnika;
 
 public:
-    PutnickoVozilo(double srednjaT, double SrednjaTzPutnika, int brojPutnika) : Vozilo(srednjaT), srednjaTezinaPutnika(SrednjaTzPutnika), brojPutnika(brojPutnika) {}
-    char vrsta() const override { return 'P'; }
+    PutnickoVozilo(double sT, double stP, int bP)
+        : Vozilo(sT), srednjaTezinaPutnika(stP), brojPutnika(bP) {}
 
-    double tezina() const override
+    char Vrsta() override { return 'P'; }
+
+    double Tezina() override
     {
-        return Vozilo::tezina() + srednjaTezinaPutnika * brojPutnika;
+        return Vozilo::Tezina() + srednjaTezinaPutnika * brojPutnika;
     }
-    void ispisi() const override
+
+    void Ispisi() override
     {
-        cout << vrsta() << "(" << Vozilo::tezina() << "," << srednjaTezinaPutnika << "," << brojPutnika << ")";
+        cout << Vrsta() << " (" << Vozilo::Tezina() << ", "
+             << srednjaTezinaPutnika << ", " << brojPutnika << ") = ukupno: "
+             << Tezina() << " kg" << endl;
     }
 };
-class TeretnoVozilo : public Vozilo
+
+class TeretnoVozolo : public Vozilo
 {
     double tezinaTereta;
 
 public:
-    TeretnoVozilo(double st, double tt) : Vozilo(st), tezinaTereta(tt) {}
-    char vrsta() const override { return 'T'; }
-    double tezina() const override
+    TeretnoVozolo(double sT, double tT)
+        : Vozilo(sT), tezinaTereta(tT) {}
+
+    char Vrsta() override
     {
-        return Vozilo::tezina() + tezinaTereta;
+        return 'T';
     }
-    void ispisi() const override
+
+    double Tezina() override
     {
-        cout << vrsta() << "(" << Vozilo::tezina() << "," << tezinaTereta << ")";
+        return Vozilo::Tezina() + tezinaTereta;
+    }
+
+    void Ispisi() override
+    {
+        cout << Vrsta() << " (sopstvena: " << Vozilo::Tezina()
+             << ", teret: " << tezinaTereta << ") = ukupno: "
+             << Tezina() << " kg" << endl;
     }
 };
+
 int main()
 {
     Vozilo *vozila[100];
     int n = 0;
+
     while (true)
     {
-        cout << "Vrsta vozila (T,P,*)";
+        cout << "Unesi vrstu vozila (p = putnicko, t = teretno, * = kraj): ";
         char vrsta;
         cin >> vrsta;
+
         if (vrsta == '*')
         {
             break;
         }
-        if (vrsta == 'T' || vrsta == 't')
+
+        if (vrsta == 'p')
         {
-            cout << "Sopstvena tezina ?";
-            double sopstvenaTezina;
-            cin >> sopstvenaTezina;
-            cout << "Tezina tereta? ";
-            double ter;
-            cin >> ter;
-            vozila[n++] = new TeretnoVozilo(sopstvenaTezina, ter);
+            double sT, stP;
+            int bP;
+            cout << "Unesi sopstvenu tezinu: ";
+            cin >> sT;
+            cout << "Unesi srednju tezinu putnika: ";
+            cin >> stP;
+            cout << "Unesi broj putnika: ";
+            cin >> bP;
+            vozila[n++] = new PutnickoVozilo(sT, stP, bP);
         }
-        else if (vrsta == 'P' || vrsta == 'p')
+        else if (vrsta == 't')
         {
-            cout << "Sopstvena tezina? ";
-            double sTez;
-            cin >> sTez;
-            cout << "Sr. tezina putnika? ";
-            double srTez;
-            cin >> srTez;
-            cout << "Broj putnika? ";
-            int brPut;
-            cin >> brPut;
-            vozila[n++] = new PutnickoVozilo(sTez, srTez, brPut);
+            double sT, tezinaTereta;
+            cout << "Unesi sopstvenu tezinu: ";
+            cin >> sT;
+            cout << "Unesi tezinu tereta: ";
+            cin >> tezinaTereta;
+            vozila[n++] = new TeretnoVozolo(sT, tezinaTereta);
         }
         else
         {
-            cout << "Nepoznata vrsta vozila !\n";
+            cout << "Nepoznata komanda, pokusaj ponovo.\n";
         }
     }
 
-    cout << "Nosivost mosta ?";
+    cout << "Unesi nosivost mosta: ";
     double nosivost;
     cin >> nosivost;
+
     cout << "\nVozila koja mogu da predju most:\n";
+    for (int i = 0; i < n; i++)
+    {
+        if (vozila[i]->Tezina() <= nosivost)
+        {
+            vozila[i]->Ispisi();
+        }
+    }
 
     for (int i = 0; i < n; i++)
     {
-        if (vozila[i]->tezina() <= nosivost)
-        {
-            vozila[i]->ispisi();
-            cout << " - " << vozila[i]->tezina() << " kg \n";
-        }
+        delete vozila[i];
     }
+
     return 0;
 }
-//     cout << "Nosivost mosta? ";
-//     double nosivost;
-//     cin >> nosivost
-//     cout << "\nVozila koja mogu da predju most:\n";
-//     for (int i = 0; i < n; i++)
+//=====================================================================================
+// #include <iostream>
+// #include <string>
+// using namespace std;
+
+// class Osoba
+// {
+// protected:
+//     string ime;
+//     string datumRodjenja;
+//     string adresa;
+
+// public:
+//     Osoba() : ime(""), datumRodjenja(""), adresa("") {}
+
+//     virtual void Ucitaj()
 //     {
-//         if (vozila[i]->tezina() <= nosivost)
+//         cout << "Unesi ime: ";
+//         cin.ignore(); // da bi cin >> radio ispravno nakon prethodnog unosa
+//         getline(cin, ime);
+//         cout << "Unesi datum rodjenja: ";
+//         getline(cin, datumRodjenja);
+//         cout << "Unesi adresu: ";
+//         getline(cin, adresa);
+//     }
+
+//     virtual void Ispisi() const
+//     {
+//         cout << "Ime: " << ime << ", Datum rodjenja: " << datumRodjenja
+//              << ", Adresa: " << adresa;
+//     }
+// };
+
+// class Djak : public Osoba
+// {
+//     string nazivSkole;
+//     int razred;
+
+// public:
+//     Djak() : Osoba(), nazivSkole(""), razred(0) {}
+
+//     void Ucitaj() override
+//     {
+//         Osoba::Ucitaj();
+//         cout << "Unesi naziv skole: ";
+//         getline(cin, nazivSkole);
+//         cout << "Unesi razred: ";
+//         cin >> razred;
+//     }
+
+//     void Ispisi() const override
+//     {
+//         Osoba::Ispisi();
+//         cout << ", Skola: " << nazivSkole << ", Razred: " << razred << endl;
+//     }
+// };
+
+// class Zaposleni : public Osoba
+// {
+//     string nazivPreduzeca;
+//     string odeljenje;
+
+// public:
+//     Zaposleni() : Osoba(), nazivPreduzeca(""), odeljenje("") {}
+
+//     void Ucitaj() override
+//     {
+//         Osoba::Ucitaj();
+//         cin.ignore();
+//         cout << "Unesi naziv preduzeca: ";
+//         getline(cin, nazivPreduzeca);
+//         cout << "Unesi naziv odeljenja: ";
+//         getline(cin, odeljenje);
+//     }
+
+//     void Ispisi() const override
+//     {
+//         Osoba::Ispisi();
+//         cout << ", Preduzece: " << nazivPreduzeca << ", Odeljenje: " << odeljenje << endl;
+//     }
+// };
+
+// int main()
+// {
+//     Osoba *osobe[100];
+//     int n = 0;
+
+//     while (true)
+//     {
+//         cout << "Unesi tip osobe (d = djak, z = zaposleni, * = kraj): ";
+//         char tip;
+//         cin >> tip;
+
+//         if (tip == '*')
 //         {
-//             vozila[i]->ispisi();
-//             cout << " - " << vozila[i]->tezina() << " kg\n";
+//             break;
+//         }
+
+//         if (tip == 'd')
+//         {
+//             osobe[n] = new Djak();
+//             osobe[n++]->Ucitaj();
+//         }
+//         else if (tip == 'z')
+//         {
+//             osobe[n] = new Zaposleni();
+//             osobe[n++]->Ucitaj();
+//         }
+//         else
+//         {
+//             cout << "Nepoznat tip. Pokusaj ponovo.\n";
 //         }
 //     }
 
+//     cout << "\nUnete osobe:\n";
 //     for (int i = 0; i < n; i++)
 //     {
-//         delete vozila[i];
+//         osobe[i]->Ispisi();
+//     }
+
+//     // Oslobodi memoriju
+//     for (int i = 0; i < n; i++)
+//     {
+//         delete osobe[i];
 //     }
 //     return 0;
 // }
-//=========
+//=====================================================================================
